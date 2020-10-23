@@ -6,7 +6,9 @@ const characterSchema = new Schema (
         "HP": { type: Number, default: 100 },
         "MadnessLevel": { type: Number, default: 0 },
         "inventory": [{type: Schema.Types.ObjectId, ref: 'Item'}],
-        "username": {type: String, default: Schema.Types.ObjectId}
+        "events": [{type: Schema.Types.ObjectId, ref: 'Events'}],
+        "username": {type: String, default: 'some schmuck'},
+        "currentRoom": 
     }
 )
 

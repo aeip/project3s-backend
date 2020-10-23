@@ -6,6 +6,7 @@ const morgan = require('morgan')
 const app = express()
 
 const characterRouter = require('./controller/character')
+const itemRouter = require('./controller/item')
 
 app.use(cors())
 app.use(express.json())
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/character', characterRouter)
+app.use('/item', itemRouter)
 
 app.listen(PORT, () => {
   console.log(`Your are listening on port ${PORT}`);
