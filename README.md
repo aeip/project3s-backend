@@ -70,15 +70,15 @@ PostMVP
 | Component                                     | Priority | Estimated Time | Time Invested | Actual Time |
 | --------------------------------------------- | :------: | :------------: | :-----------: | :---------: |
 | Create React app and files for all components |    H     |       1        |     40min     |    40min    |
-| Cors | 0.5hr | | | |
-| Connection | 0.5hr | | | |
-| Router | 1hr | | | |
-| Server | 1hr | | | |
-| Character Model | 0.5hr | | | |
-| Item model | 0.5hr | | | |
-| Testing API | 1hr | | | |
-| Deploy | 1hr | | | |
-| Total | 6hr | | | |
+| Cors | H | 0.5hr| | |
+| Connection | H | 0.5hr| | |
+| Router | H | 1hr | | |
+| Server | H | 1hr | | |
+| Character Model | M | 0.5hr | | |
+| Item model | M | 0.5hr | | |
+| Testing API | M | 1hr | | |
+| Deploy | H | 1hr | | |
+| Total |  | 6hr | | |
 
 ## Additional Libraries
 
