@@ -5,7 +5,7 @@ const Item = require('../model/item')
 
 //enter character into game
 router.get('/', async (req, res) => {
-    res.json(await Character.find().populate('Item').populate('Event'))
+    res.json(await Character.find().populate('inventory').populate('events'))
 })
 
 //create the character

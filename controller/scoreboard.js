@@ -17,10 +17,12 @@ router.get('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     let scoreboard = await Scoreboard.findOne()
     let player = await Character.findById(req.params.id)
-    if (scoreboard.length >= 10){
+    if (scoreboard.length = 10){
         scoreboard.sort(function(a, b){return b-a})
-        scoreboard.pop()
-        scoreboard.players.push(player)
+        if (player.score > scoreboard.players[9].score){
+            scoreboard.pop()
+            scoreboard.players.push(player)
+        }
         res.json(await Scoreboard.findOneAndUpdate(scoreboard))
     } else {
         scoreboard.players.push(player)
