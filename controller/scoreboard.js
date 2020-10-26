@@ -22,6 +22,8 @@ router.put('/:id', async (req, res) => {
         if (player.score > scoreboard.players[9].score){
             scoreboard.pop()
             scoreboard.players.push(player)
+        } else {
+            await Character.findByIdAndDelete(req.params.id)
         }
         res.json(await Scoreboard.findOneAndUpdate(scoreboard))
     } else {
