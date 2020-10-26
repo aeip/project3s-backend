@@ -22,5 +22,5 @@ app.use('/item', itemRouter)
 app.use('/absoluteresetonly', resetRouter)
 
 app.listen(PORT, () => {
-  console.log(`Your are listening on port ${PORT}`);
+  console.log(`You are listening on port ${PORT}`);
 });
