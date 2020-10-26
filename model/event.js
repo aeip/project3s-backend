@@ -8,6 +8,6 @@ const eventSchema = new Schema (
     }
 )
 
-const Item = mongoose.model('Event', eventSchema)
+const Event = mongoose.model('Event', eventSchema)
 
-module.exports = Item
+module.exports = Event

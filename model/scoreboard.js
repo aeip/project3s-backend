@@ -1,12 +1,12 @@
 const mongoose = require('../db/connection')
 const Schema = mongoose.Schema
 
-const itemSchema = new Schema (
+const scoreSchema = new Schema (
     {
         "players": [{type: Schema.Types.ObjectId, ref: 'Character'}]
     }
 )
 
-const Item = mongoose.model('Item', itemSchema)
+const Scoreboard = mongoose.model('Scoreboard', scoreSchema)
 
-module.exports = Item
+module.exports = Scoreboard

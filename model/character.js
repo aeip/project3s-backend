@@ -8,7 +8,8 @@ const characterSchema = new Schema (
         "inventory": [{type: Schema.Types.ObjectId, ref: 'Item'}],
         "events": [{type: Schema.Types.ObjectId, ref: 'Events'}],
         "username": {type: String, default: 'some schmuck'},
-        "currentRoom": {type: String, default: 'Foyer'}
+        "currentRoom": {type: String, default: 'Foyer'},
+        "score": {type: Number, default: 0}
     }
 )
 
