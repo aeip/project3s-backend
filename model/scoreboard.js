@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const scoreSchema = new Schema (
     {
+        "scoreboard": {type: String, default: 'scoreboard'},
         "players": [{type: Schema.Types.ObjectId, ref: 'Character'}]
     }
 )

@@ -8,6 +8,7 @@ const app = express()
 const characterRouter = require('./controller/character')
 const itemRouter = require('./controller/item')
 const resetRouter = require('./controller/resetData')
+const scoreRouter = require('./controller/scoreboard')
 
 app.use(cors())
 app.use(express.json())
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 app.use('/character', characterRouter)
 app.use('/item', itemRouter)
 app.use('/absoluteresetonly', resetRouter)
+app.use('/score', scoreRouter)
 
 app.listen(PORT, () => {
   console.log(`You are listening on port ${PORT}`);
