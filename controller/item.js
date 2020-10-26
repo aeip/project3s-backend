@@ -8,6 +8,11 @@ router.get('/', async (req, res) => {
     res.json(await Item.find())
 })
 
+//find one
+router.get('/:name', async (req, res) => {
+    res.json(await Item.findOne(req.params.name))
+})
+
 //make item
 router.post('/', async (req, res) => {
     res.json(await Item.create(req.body))
