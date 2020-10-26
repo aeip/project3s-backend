@@ -20,7 +20,6 @@ router.put('/:id/:item', async (req, res) => {
     let item = await Item.find({name: req.params.item})
     person.inventory.push(item)
     res.json(person)
-
 })
 
 module.exports = router
