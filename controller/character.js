@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Character = require('../model/character')
 const Item = require('../model/item')
+const Event = require('../model/event')
 
 //enter character into game
 router.get('/', async (req, res) => {
