@@ -9,6 +9,10 @@ router.get('/', async (req, res) => {
     res.json(await Character.find().populate('inventory').populate('events'))
 })
 
+router.get('/:username', async (req, res) => {
+    res.json( await Character.findOne({username: req.params.username}))
+})
+
 //create the character
 router.post('/', async (req, res) => {
     res.json(await Character.create(req.body))
