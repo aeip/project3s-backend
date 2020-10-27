@@ -27,4 +27,10 @@ router.put('/:id/:item', async (req, res) => {
     res.json(person)
 })
 
+//update character
+router.put('/:username', async (req, res) => {
+    let person = await Character.findOne({ username: req.params.username });
+    res.json(await Character.findOneAndUpdate(person));
+})
+
 module.exports = router
