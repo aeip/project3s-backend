@@ -7,7 +7,8 @@ const characterSchema = new Schema (
         "MadnessLevel": { type: Number, default: 0 },
         "inventory": [{type: Schema.Types.ObjectId, ref: 'Item'}],
         "events": [{type: Schema.Types.ObjectId, ref: 'Event'}],
-        "username": {type: String, default: 'some schmuck'},
+        "username": {type: String, default: 'username'},
+        "password": {type: String, default: 'password'},
         "currentRoom": {type: String, default: 'Foyer'},
         "score": {type: Number, default: 0}
     }
