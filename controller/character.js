@@ -16,9 +16,7 @@ router.get('/:username', async (req, res) => {
 
 //create the character
 router.post('/', async (req, res) => {
-    res.json(await Character.create(req.body).catch((error) => {
-        console.log(error)
-    }) )
+    res.json(await Character.create(req.body))
 })
 
 //add to inventory
