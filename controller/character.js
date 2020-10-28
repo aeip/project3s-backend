@@ -10,8 +10,14 @@ router.get('/', async (req, res) => {
     res.json(await Character.find().populate('inventory').populate('events'))
 })
 
+//find by username
 router.get('/:username', async (req, res) => {
     res.json( await Character.findOne({username: req.params.username}))
+})
+
+//find by username AND password
+router.get('/:username/:password', async (req, res) => {
+    res.json( await Character.findOne({username: req.params.username}, {password: req.params.password}))
 })
 
 //create the character
