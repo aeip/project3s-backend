@@ -29,7 +29,6 @@ router.put('/:id/:item', async (req, res) => {
 
 //update character
 router.put('/:username', async (req, res) => {
-    let person = await Character.findOne({ username: req.params.username });
     res.json(await Character.findOneAndUpdate({username: req.params.username}, req.body));
 })
 
