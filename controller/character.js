@@ -21,10 +21,8 @@ router.post('/', async (req, res) => {
 
 //add to inventory
 router.put('/:id/:item', async (req, res) => {
-    console.log(req.params)
-    let person = await Character.findById(req.params.id)
     let item = await Item.find({name: req.params.item})
-    person.inventory.push(item)
+    let person = await Character.findByIdAndUpdate(req.params.id, {$push: {inventory: item}})
     res.json(person)
 })
 
@@ -33,11 +31,11 @@ router.put('/:username', async (req, res) => {
     res.json(await Character.findOneAndUpdate({username: req.params.username}, req.body));
 })
 //update character item?
-router.put('/:username/:item', async (req, res) => {
-    let person = await Character.findOne({ username: req.params.username });
-    person.inventory.push(req.params.item);
-    res.json(person);
-})
+// router.put('/:username/:item', async (req, res) => {
+//     let person = await Character.findOne({ username: req.params.username });
+//     person.inventory.push(req.params.item);
+//     res.json(person);
+// })
 
 //delete characters
 router.delete('/', async (req, res) => {
