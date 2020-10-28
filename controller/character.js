@@ -24,7 +24,18 @@ router.put('/:username/:item', async (req, res) => {
     let item = await Item.find({name: req.params.item})
     let person = await Character.findOneAndUpdate({username: req.params.username}, {$push: {inventory: item}})
     res.json(person)
-   
+})
+
+//update curent rooom
+router.put('/:username/room/:room', async (req, res) => {
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {currentRoom: req.params.room})
+    res.json(person)
+})
+
+//update curent rooom
+router.put('/:username/score/:score', async (req, res) => {
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {score: req.params.score})
+    res.json(person)
 })
 
 
