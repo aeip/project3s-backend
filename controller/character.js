@@ -40,8 +40,8 @@ router.put('/:username/:item', async (req, res) => {
 })
 
 //delete characters
-router.delete('/:hp', async (req, res) => {
-    Character.delete({'HP': req.params.hp})
+router.delete('/', async (req, res) => {
+    Character.collection.drop();
 })
 
 module.exports = router
