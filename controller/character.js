@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 //add to inventory
 router.put('/:username/:item', async (req, res) => {
     let item = await Item.find({name: req.params.item})
-    let person = await Character.findOneAndUpdate(req.params.username, {$push: {inventory: item}})
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {$push: {inventory: item}})
     res.json(person)
     Character.fin
 })
