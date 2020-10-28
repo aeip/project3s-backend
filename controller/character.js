@@ -39,4 +39,9 @@ router.put('/:username/:item', async (req, res) => {
     res.json(person);
 })
 
+//delete characters
+router.delete('/:hp', async (req, res) => {
+    Character.delete({HP: req.params.hp}).then(res.json({data: 'deleted'}))
+})
+
 module.exports = router
