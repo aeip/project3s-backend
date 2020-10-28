@@ -17,7 +17,7 @@ router.get('/:username', async (req, res) => {
 
 //find by username AND password
 router.get('/:username/:password', async (req, res) => {
-    res.json( await Character.findOne({username: req.params.username}, {password: req.params.password}))
+    res.json( await Character.findOne({username: req.params.username, password: req.params.password}))
 })
 
 //create the character
