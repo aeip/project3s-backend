@@ -20,22 +20,12 @@ router.post('/', async (req, res) => {
 })
 
 //add to inventory
-router.put('/:id/:item', async (req, res) => {
+router.put('/:username/:item', async (req, res) => {
     let item = await Item.find({name: req.params.item})
-    let person = await Character.findByIdAndUpdate(req.params.id, {$push: {inventory: item}})
+    let person = await Character.findByIdAndUpdate(req.params.username, {$push: {inventory: item}})
     res.json(person)
 })
 
-//update character
-router.put('/:username', async (req, res) => {
-    res.json(await Character.findOneAndUpdate({username: req.params.username}, req.body));
-})
-//update character item?
-// router.put('/:username/:item', async (req, res) => {
-//     let person = await Character.findOne({ username: req.params.username });
-//     person.inventory.push(req.params.item);
-//     res.json(person);
-// })
 
 //delete characters
 router.delete('/', async (req, res) => {
