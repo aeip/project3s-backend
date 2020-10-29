@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const app = express()
 
 const characterRouter = require('./controller/character')
-const itemRouter = require('./controller/item')
+
 const resetRouter = require('./controller/resetData')
 const scoreRouter = require('./controller/scoreboard')
 
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/character', characterRouter)
-app.use('/item', itemRouter)
+
 app.use('/absoluteresetonly', resetRouter)
 app.use('/score', scoreRouter)
 
