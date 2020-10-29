@@ -52,7 +52,7 @@ router.put('/:username/HP/:HP', async (req, res) => {
 
 //update madness
 router.put('/:username/madness/:madness', async (req, res) => {
-    let person = await Character.findOneAndUpdate({username: req.params.username}, {madnessLevel: req.params.madness})
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {MadnessLevel: req.params.madness})
     res.json(person)
 })
 
