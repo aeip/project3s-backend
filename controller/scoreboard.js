@@ -15,20 +15,9 @@ router.get('/', async (req, res) => {
 
 //Add player to scoreboard
 router.put('/:username', async (req, res) => {
-    let scoreboard = await Scoreboard.findOne()
-    let player = await Character.findOne(req.params.username)
-    if (scoreboard.length = 10){
-        scoreboard.sort(function(a, b){return b-a})
-        if (player.score > scoreboard.players[9].score){
-            scoreboard.pop()
-            scoreboard.players.push(player)
-        } else {
-            await Character.findByIdAndDelete(req.params.username)
-        }
-        res.json(await Scoreboard.findOneAndUpdate({scoreboard: "scoreboard"}, scoreboard.players))
-    } else {
-        res.json(await Scoreboard.findOneAndUpdate({$push: {scoreboard: player}}))
-    }
+    let player = await Character.findOne({username:req.params.username})
+
+    res.json(await Scoreboard.findOneAndUpdate({scoreboard:'scoreboard'}, {$push: {players: player}}))
     
 })
 
