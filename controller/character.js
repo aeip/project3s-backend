@@ -38,9 +38,21 @@ router.put('/:username/room/:room', async (req, res) => {
     res.json(person)
 })
 
-//update curent rooom
+//update score
 router.put('/:username/score/:score', async (req, res) => {
     let person = await Character.findOneAndUpdate({username: req.params.username}, {score: req.params.score})
+    res.json(person)
+})
+
+//update health
+router.put('/:username/HP/:HP', async (req, res) => {
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {health: req.params.HP})
+    res.json(person)
+})
+
+//update madness
+router.put('/:username/madness/:madness', async (req, res) => {
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {madness: req.params.madness})
     res.json(person)
 })
 
