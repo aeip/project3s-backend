@@ -14,21 +14,21 @@ router.get('/', async (req, res) => {
 })
 
 //Add player to scoreboard
-router.put('/:id', async (req, res) => {
+router.put('/:username', async (req, res) => {
     let scoreboard = await Scoreboard.findOne()
-    let player = await Character.findById(req.params.id)
+    let player = await Character.findOne(req.params.username)
     if (scoreboard.length = 10){
         scoreboard.sort(function(a, b){return b-a})
         if (player.score > scoreboard.players[9].score){
             scoreboard.pop()
             scoreboard.players.push(player)
         } else {
-            await Character.findByIdAndDelete(req.params.id)
+            await Character.findByIdAndDelete(req.params.username)
         }
-        res.json(await Scoreboard.findOneAndUpdate(scoreboard))
+        res.json(await Scoreboard.findOneAndUpdate({scoreboard: "scoreboard"}, scoreboard))
     } else {
         scoreboard.players.push(player)
-        res.json(await Scoreboard.findOneAndUpdate(scoreboard))
+        res.json(await Scoreboard.findOneAndUpdate({scoreboard: "scoreboard"}, scoreboard))
     }
     
 })
