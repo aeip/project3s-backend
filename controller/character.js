@@ -7,7 +7,7 @@ const { json } = require('express')
 
 //enter character into game
 router.get('/', async (req, res) => {
-    res.json(await Character.find().populate('inventory').populate('events'))
+    res.json(await Character.find().populate('events'))
 })
 
 //find by username
