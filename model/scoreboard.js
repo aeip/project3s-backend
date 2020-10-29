@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const scoreSchema = new Schema (
     {
         "scoreboard": {type: String, default: 'scoreboard'},
-        "players": [{type: String}]
+        "players": [{type: Object}]
     }
 )
 
