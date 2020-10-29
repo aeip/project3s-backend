@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Character = require('../model/character')
-const Item = require('../model/item')
-const Event = require('../model/event')
 const { json } = require('express')
 
 //enter character into game
