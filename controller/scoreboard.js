@@ -25,10 +25,9 @@ router.put('/:username', async (req, res) => {
         } else {
             await Character.findByIdAndDelete(req.params.username)
         }
-        res.json(await Scoreboard.findOneAndUpdate({scoreboard: "scoreboard"}, scoreboard))
+        res.json(await Scoreboard.findOneAndUpdate({scoreboard: "scoreboard"}, scoreboard.players))
     } else {
-        scoreboard.players.push(player)
-        res.json(await Scoreboard.findOneAndUpdate({scoreboard: "scoreboard"}, scoreboard))
+        res.json(await Scoreboard.findOneAndUpdate({$push: {scoreboard: player}}))
     }
     
 })
