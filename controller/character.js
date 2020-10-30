@@ -55,7 +55,7 @@ router.put('/:username/madness/:madness', async (req, res) => {
 })
 
 router.put('/died/:username', async (req, res) => {
-    res.json( await Character.findOneAndUpdate({username: req.params.username}, {inventory: []}))
+    res.json( await Character.findOneAndUpdate({username: req.params.username}, {$pull: {inventory: ["Knife", "Guest Bedroom Key", "Greenhouse Key", "Rec Room Key", "Dining Hall Key", "Mysterious Key", "Study Key"]}}))
 })
 
 
