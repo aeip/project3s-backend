@@ -54,6 +54,10 @@ router.put('/:username/madness/:madness', async (req, res) => {
     res.json(person)
 })
 
+router.put('/died/:username', async (req, res) => {
+    res.json( await Character.findOneAndUpdate({username: req.params.username}, {inventory: []}))
+})
+
 
 //delete characters
 router.delete('/', async (req, res) => {
