@@ -6,6 +6,7 @@ const { json } = require('express')
 //enter character into game
 router.get('/', async (req, res) => {
     res.json(await Character.find().populate('events'))
+    
 })
 
 //find by username
@@ -20,6 +21,7 @@ router.get('/:username/:password', async (req, res) => {
 
 //create the character
 router.post('/', async (req, res) => {
+    
     res.json(await Character.create(req.body))
 })
 
@@ -54,8 +56,9 @@ router.put('/:username/madness/:madness', async (req, res) => {
     res.json(person)
 })
 
-router.put('/died/:username', async (req, res) => {
-    res.json( await Character.findOneAndUpdate({username: req.params.username}, {$set: {inventory: []}}))
+router.put('/:username/reset/died', async (req, res) => {
+    let person = await Character.findOneAndUpdate({username: req.params.username}, {inventory: []})
+    res.json(person)
 })
 
 
